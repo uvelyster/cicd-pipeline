@@ -1,13 +1,5 @@
 pipeline {
     agent any
-    environment {
-        BUILD_VER = 'PROJECT-ID'
-        LOCATION = 'CLUSTER-LOCATION'
-        CREDENTIALS_ID = 'gke'
-        CLUSTER_NAME_TEST = 'CLUSTER-NAME-1'
-        CLUSTER_NAME_PROD = 'CLUSTER-NAME-2'          
-    }
-    
     stages {
         stage("Checkout code") {
             steps {
