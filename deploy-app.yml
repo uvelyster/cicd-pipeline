@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: myregistry.com/hello:jenkins-ENV_BUILD_ID
+        image: myregistry.com/root/cicd-pipeline/hello:jenkins-ENV_BUILD_ID
         imagePullPolicy: Always
         ports:
         - containerPort: 5000

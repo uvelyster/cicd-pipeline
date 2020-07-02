@@ -14,7 +14,7 @@ pipeline {
         stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("myregistry.com/root/demo/hello:jenkins-${env.BUILD_ID}")
+                    myapp = docker.build("myregistry.com/root/cicd-pipeline/hello:jenkins-${env.BUILD_ID}")
                 }
             }
         }
