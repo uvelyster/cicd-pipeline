@@ -28,17 +28,10 @@ pipeline {
                 }
             }
         }       
-        /*stage('Deploy to GKE test cluster') {
+        stage('Deploy to kubernetes cluster') {
             steps{
-                sh "sed -i 's/hello:latest/hello:${env.BUILD_ID}/g' deployment.yaml"
-                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME_TEST, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+                sh "kubectl apply -y deploy-app.yml"
             }
         }
-        stage('Deploy to GKE production cluster') {
-            steps{
-                input message:"Proceed with final deployment?"
-                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME_PROD, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
-            }
-        }*/  
     }    
 }
