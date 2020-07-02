@@ -20,8 +20,8 @@ spec:
       - name: hello
         image: myregistry.com/hello:jenkins-$BUILD_ID
         imagePullPolicy: Always
-        imagePullSecrets:
-        - name: regcred
         ports:
         - containerPort: 5000
           name: hello
+      imagePullSecrets:
+      - name: regcred
