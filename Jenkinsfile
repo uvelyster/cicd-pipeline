@@ -30,7 +30,7 @@ pipeline {
         }       
         stage('Deploy to kubernetes cluster') {
             steps{
-                sh "sed -i 's/hello:jenkins-ENV_BUILD_ID/hello:${env.BUILD_ID}/g' deploy-app.yml"
+                sh "sed -i 's/hello:jenkins-ENV_BUILD_ID/hello:jenkins-${env.BUILD_ID}/g' deploy-app.yml"
                 sh "kubectl apply -f deploy-app.yml"
             }
         }
