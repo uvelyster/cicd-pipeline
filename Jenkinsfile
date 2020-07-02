@@ -23,7 +23,7 @@ pipeline {
                 script {
                     docker.withRegistry('https://myregistry.com', 'registry-auth') {
                             myapp.push("latest")
-                            myapp.push("${env.BUILD_ID}")
+                            myapp.push("jenkins-${env.BUILD_ID}")
                     }
                 }
             }
