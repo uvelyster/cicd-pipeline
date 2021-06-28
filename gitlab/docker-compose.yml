@@ -13,7 +13,7 @@ gitlab:
     - '443:443'
   volumes:
     - '/root/gitlab/config:/etc/gitlab'
-    - '/root/gitlab/ssl:/etc/gitlab/ssl'
+    - '/root/auth/ssl:/etc/gitlab/ssl'
     - '/root/gitlab/logs:/var/log/gitlab'
     - '/root/gitlab/data:/var/opt/gitlab'
     - '/root/gitlab/backup:/var/opt/gitlab/backups'
