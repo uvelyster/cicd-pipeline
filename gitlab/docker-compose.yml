@@ -1,0 +1,19 @@
+gitlab:
+  image: 'gitlab/gitlab-ce:latest'
+  restart: always
+  hostname: 'mygitlab.com'
+  container_name: gitlab
+  environment:
+    GITLAB_OMNIBUS_CONFIG: |
+      external_url 'http://mygitlab.com'
+      registry_external_url 'https://myregistry.com'
+  ports:
+    - '80:80'
+    - '443:443'
+  volumes:
+    - '/root/gitlab/config:/etc/gitlab'
+    - '/root/gitlab/ssl:/etc/gitlab/ssl'
+    - '/root/gitlab/logs:/var/log/gitlab'
+    - '/root/gitlab/data:/var/opt/gitlab'
+    - '/root/gitlab/backup:/var/opt/gitlab/backups'
+    - '/root/gitlab/registry:/var/opt/gitlab/gitlab-rails/shared/registry'
